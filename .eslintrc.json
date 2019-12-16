@@ -1,0 +1,102 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-cond-assign": [
+            "error",
+            "always"
+        ],
+        "no-constant-condition": "error",
+        "no-dupe-args": "error",
+        "no-dupe-keys": "error",
+        "no-empty-character-class": "error",
+        "no-extra-boolean-cast": "error",
+        "no-invalid-regexp": "error",
+        "no-irregular-whitespace": "error",
+        "no-unexpected-multiline": "error",
+        "no-unreachable": "error",
+
+        "eqeqeq": "error",
+        "no-case-declarations": "error",
+        "no-empty-pattern": "error",
+        "no-fallthrough": "error",
+        "no-redeclare": "error",
+        "init-declarations": [
+            "error",
+            "always"
+        ],
+        "no-undef": "error",
+
+        "camelcase": "warn",
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "no-mixed-spaces-and-tabs": "error",
+        "no-trailing-spaces": "warn",
+        "object-property-newline": "error",
+        "space-infix-ops": "warn",
+        "comma-style": "warn",
+        "comma-spacing": [
+            "warn",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "func-call-spacing": [
+            "warn",
+            "never"
+        ],
+        "key-spacing": [
+            "warn",
+            {
+                "beforeColon": false,
+                "afterColon": true
+            }
+        ],
+
+        "no-class-assign": "error",
+        "no-func-assign": "error",
+        "no-const-assign": "error",
+        "no-dupe-class-members": "error",
+        "no-duplicate-imports": "error",
+        "no-this-before-super": "error",
+        "no-useless-rename": "error",
+        "no-var": "warn"
+    }
+}
