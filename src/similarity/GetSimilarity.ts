@@ -1,3 +1,14 @@
+import {
+    getOrderArray,
+    getSameItem,
+    getAllCharsIndex,
+    removeDuplicates
+} from './utils'
+
+interface stringToindex {
+    [key: string]: number[]
+}
+
 function deleteDifferentChars(str1: string, str2: string): [string, string] {
     let resStr1: string = ''
     let resStr2: string = ''
@@ -14,23 +25,6 @@ function deleteDifferentChars(str1: string, str2: string): [string, string] {
     }
 
     return [resStr1, resStr2]
-}
-
-// 得到str1在str2内所有位置，得到所有索引
-function getAllCharsIndex(str1: string, str2: string): number[] {
-    let pos = str2.indexOf(str1)
-    let position: number[] = []
-
-    while (pos !== -1) {
-        position.push(pos)
-        pos = str2.indexOf(str1, pos + 1)
-    }
-
-    return position
-}
-
-interface stringToindex {
-    [key: string]: number[]
 }
 
 function getAllCharsToIndex(str1: string, str2: string): [stringToindex, stringToindex] {
@@ -54,6 +48,11 @@ function getAllCharsToIndex(str1: string, str2: string): [stringToindex, stringT
     return [result1, result2]
 }
 
+function featrueGenerated(str1: string, str2: string) {
+    const arr1: string[] = getOrderArray(str1)
+    const arr2: string[] = getOrderArray(str2)
 
+    return removeDuplicates(getSameItem(arr1, arr2))
+}
 
-export { deleteDifferentChars, getAllCharsIndex, getAllCharsToIndex }
+export { deleteDifferentChars, getAllCharsToIndex, featrueGenerated }
