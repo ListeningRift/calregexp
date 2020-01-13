@@ -1,4 +1,9 @@
 import { containJudge } from './ContainJuade'
-import { deleteDifferentChars } from './GetSimilarity'
+import { deleteDifferentChars, getAllCharsToIndex, featrueGenerated } from './GetSimilarity'
 
-export { containJudge, deleteDifferentChars }
+export {
+    containJudge,
+    deleteDifferentChars,
+    getAllCharsToIndex,
+    featrueGenerated
+}

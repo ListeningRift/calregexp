@@ -1,27 +1,26 @@
+// 得到某字符串的所有顺序序列
 function getOrderArray(str: string): string[] {
     let result: string[] = []
 
-    for (let i = 0; i < str.length; i++) {
+    for (let i of str) {
         let res = result.concat()
-        result.push(str[i])
+        result.push(i)
         for (let j of res) {
-            result.push(j + str[i])
+            result.push(j + i)
         }
     }
 
     return result
 }
 
+// 得到两字符串数组中相同的项
 function getSameItem(arr1: string[], arr2: string[]): string[] {
     return arr1.filter(val => {
         return arr2.indexOf(val) !== -1
     })
 }
 
-function featureRegExp(str: string) {
-    return new RegExp(str.split('').join('.*'))
-}
-
+// 得到一个字符对应在一个字符串内所有的索引
 function getAllCharsIndex(str1: string, str2: string): number[] {
     let pos = str2.indexOf(str1)
     let position: number[] = []
@@ -34,6 +33,7 @@ function getAllCharsIndex(str1: string, str2: string): number[] {
     return position
 }
 
+// 移除数组内所有的重复项
 function removeDuplicates(arr: string[]) {
     let result: string[] = []
 
@@ -50,7 +50,6 @@ function removeDuplicates(arr: string[]) {
 export {
     getOrderArray,
     getSameItem,
-    featureRegExp,
     getAllCharsIndex,
     removeDuplicates
 }
