@@ -11,7 +11,7 @@ class Feature {
     }
 
     public regexpGet(): RegExp {
-        return new RegExp(this.value.split('').join('.*'))
+        return new RegExp(this.value.split('').join('.*?'), 'g')
     }
 
     public isEqual(otherFeature: Feature): boolean {
