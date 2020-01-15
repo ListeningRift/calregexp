@@ -2,7 +2,7 @@ import { containJudge } from '../../similarity/ContainJuade'
 
 describe('test containJudge', () => {
     test('test containJudge: Error in the length of arguments', () => {
-        expect(containJudge('aaabc0', 'abc')).toBeFalsy()
+        expect(containJudge('aaabc0', 'abc')).toBeTruthy()
     })
 
     test('test containJudge: Error in can\'t match', () => {
