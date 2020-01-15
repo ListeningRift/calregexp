@@ -6,15 +6,15 @@ class Feature {
         this.value = feature
     }
 
-    public stringGet() {
+    public stringGet(): string {
         return this.value
     }
 
-    public regexpGet() {
+    public regexpGet(): RegExp {
         return new RegExp(this.value.split('').join('.*'))
     }
 
-    public compare(otherFeature: Feature) {
+    public isEqual(otherFeature: Feature): boolean {
         return this.value === otherFeature.stringGet()
     }
 }
