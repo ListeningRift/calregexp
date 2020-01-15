@@ -60,11 +60,17 @@ function getAllCharsToIndex(str1: string, str2: string): [stringToindex, stringT
 }
 
 // 通过比较得到参与比较的两个字符串的所有相似特征
-function featrueGenerated(str1: string, str2: string): Feature[] {
-    const arr1: string[] = getOrderArray(str1)
-    const arr2: string[] = getOrderArray(str2)
+function featrueGenerated(strArray: string[]): Feature[] {
+    let features: string[][] = []
+    for (let i of strArray) {
+        features.push(getOrderArray(i))
+    }
 
-    const featureStrs = removeDuplicates(getSameItem(arr1, arr2))
+    let featureStrs = features[0]
+    for (let i of features) {
+        featureStrs = getSameItem(featureStrs, i)
+    }
+    featureStrs = removeDuplicates(featureStrs)
     let result: Feature[] = []
     for (let i of featureStrs) {
         result.push(new Feature(i))

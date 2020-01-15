@@ -1,3 +1,5 @@
+import { Feature } from "../Objects"
+
 // 得到某字符串的所有顺序序列
 function getOrderArray(str: string): string[] {
     let result: string[] = []
@@ -14,7 +16,7 @@ function getOrderArray(str: string): string[] {
 }
 
 // 得到两字符串数组中相同的项
-function getSameItem(arr1: string[], arr2: string[]): string[] {
+function getSameItem<T>(arr1: T[], arr2: T[]): T[] {
     return arr1.filter(val => {
         return arr2.indexOf(val) !== -1
     })
@@ -34,7 +36,7 @@ function getAllCharsIndex(str1: string, str2: string): number[] {
 }
 
 // 移除数组内所有的重复项
-function removeDuplicates(arr: string[]) {
+function removeDuplicates(arr: string[]): string[] {
     let result: string[] = []
 
     for (let i of arr) {
