@@ -1,5 +1,5 @@
 import { deleteDifferentChars, featrueGenerated, getAllCharsToIndex } from '../../similarity/GetSimilarity'
-import { Feature } from '../../Objects'
+import { SimilarityFeature } from '../../Objects'
 
 describe('test delete different chars', () => {
     test('test delete different chars: have the same part 1', () => {
@@ -59,18 +59,18 @@ describe('test get all the chars to index', () => {
 describe('test featrue generated', () => {
     test('test feature generated 1', () => {
         let resStr = ['a', 's', 'as', 'd', 'ad', 'sd', 'asd', 'f']
-        let res: Feature[] = []
+        let res: SimilarityFeature[] = []
         for (let i of resStr) {
-            res.push(new Feature(i))
+            res.push(new SimilarityFeature(i))
         }
         expect(featrueGenerated(['asdf', 'fasd'])).toStrictEqual(res)
     })
 
     test('test feature generated 2', () => {
         let resStr = ['h', 'g', 'v', 'hv', 'gv', 'vv']
-        let res: Feature[] = []
+        let res: SimilarityFeature[] = []
         for (let i of resStr) {
-            res.push(new Feature(i))
+            res.push(new SimilarityFeature(i))
         }
         expect(featrueGenerated(['hgvv', 'vghv'])).toStrictEqual(res)
     })

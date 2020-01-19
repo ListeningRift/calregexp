@@ -1,10 +1,10 @@
-import { Feature } from './Objects'
+import { SimilarityFeature } from './Objects'
 import { featrueGenerated } from './similarity/GetSimilarity'
 import { getSameItem } from './similarity'
 
 class Calculator {
     private objects: string[]
-    public features: Feature[]
+    public features: SimilarityFeature[]
 
     constructor(objects: string[]) {
         // 分析对象，字符串数组
@@ -14,7 +14,7 @@ class Calculator {
         this.features = []
     }
 
-    private setFeatures(features: Feature[]) {
+    private setFeatures(features: SimilarityFeature[]) {
         if (this.features.length === 0) {
             this.features = features
         } else {

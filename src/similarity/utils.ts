@@ -1,4 +1,3 @@
-import { Feature } from "../Objects"
 
 // 得到某字符串的所有顺序序列
 function getOrderArray(str: string): string[] {

@@ -1,5 +1,5 @@
 
-class Feature {
+class SimilarityFeature {
     private value: string
 
     constructor(feature: string) {
@@ -14,9 +14,9 @@ class Feature {
         return new RegExp(this.value.split('').join('.*?'), 'g')
     }
 
-    public isEqual(otherFeature: Feature): boolean {
+    public isEqual(otherFeature: SimilarityFeature): boolean {
         return this.value === otherFeature.stringGet()
     }
 }
 
-export { Feature }
+export { SimilarityFeature }

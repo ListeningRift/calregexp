@@ -4,7 +4,7 @@ import {
     getAllCharsIndex,
     removeDuplicates
 } from './utils'
-import { Feature } from '../Objects'
+import { SimilarityFeature } from '../Objects'
 
 // stringToindex接口记录字符串内某字符对应的在字符串中
 // 的所有索引之后差异概括时使用
@@ -60,7 +60,7 @@ function getAllCharsToIndex(str1: string, str2: string): [stringToindex, stringT
 }
 
 // 通过比较得到参与比较的两个字符串的所有相似特征
-function featrueGenerated(strArray: string[]): Feature[] {
+function featrueGenerated(strArray: string[]): SimilarityFeature[] {
     let features: string[][] = []
     for (let i of strArray) {
         features.push(getOrderArray(i))
@@ -71,9 +71,9 @@ function featrueGenerated(strArray: string[]): Feature[] {
         featureStrs = getSameItem(featureStrs, i)
     }
     featureStrs = removeDuplicates(featureStrs)
-    let result: Feature[] = []
+    let result: SimilarityFeature[] = []
     for (let i of featureStrs) {
-        result.push(new Feature(i))
+        result.push(new SimilarityFeature(i))
     }
 
     return result
