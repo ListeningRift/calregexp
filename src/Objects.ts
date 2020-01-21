@@ -19,14 +19,16 @@ class SimilarityFeature {
 }
 
 class DifferenceFeature {
-    private feature: string
+    private feature1: string
+    private feature2: string
 
-    constructor(feature: string) {
-        this.feature = feature
+    constructor(feature1: string, feature2: string) {
+        this.feature1 = feature1
+        this.feature2 = feature2
     }
 
     stringGet(): string {
-        return this.feature
+        return 'The Feature I is: \'' + this.feature1 + '\', the Feature II is: \'' + this.feature2 + '\'.'
     }
 
     regexpGet(): RegExp {
@@ -34,7 +36,7 @@ class DifferenceFeature {
     }
 
     generalNumber(): string {
-        if (this.feature.match(/[0-9]/)) {
+        if (this.feature1.match(/[0-9]/) && this.feature2.match(/[0-9]/)) {
             return '0-9'
         }
         return ''
@@ -42,11 +44,11 @@ class DifferenceFeature {
 
     generalLetter(): string {
         let res: string = ''
-        if (this.feature.match(/[a-z]/)) {
+        if (this.feature1.match(/[a-z]/) && this.feature2.match(/[a-z]/)) {
             res += 'a-z'
         }
 
-        if (this.feature.match(/[A-Z]/)) {
+        if (this.feature1.match(/[A-Z]/) && this.feature2.match(/[A-Z]/)) {
             res += 'A-Z'
         }
         return res
