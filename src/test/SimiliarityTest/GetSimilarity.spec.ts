@@ -1,4 +1,4 @@
-import { deleteDifferentChars, featrueGenerated, getAllCharsToIndex } from '../../similarity/GetSimilarity'
+import { deleteDifferentChars, featrueGenerated } from '../../similarity/GetSimilarity'
 import { SimilarityFeature } from '../../Objects'
 
 describe('test delete different chars', () => {
@@ -12,47 +12,6 @@ describe('test delete different chars', () => {
 
     test('test delete different chars: don\'t have the same part', () => {
         expect(deleteDifferentChars('adsxwd', 'jkjinl')).toStrictEqual(['', ''])
-    })
-})
-
-describe('test get all the chars to index', () => {
-    test('test get all the chars to index 1', () => {
-        expect(getAllCharsToIndex('abcdaa', 'adef')).toStrictEqual([
-            {
-                'a': [0, 4, 5],
-                'd': [3]
-            },
-            {
-                'a': [0],
-                'd': [1]
-            }
-        ])
-    })
-
-    test('test get all the chars to index 2', () => {
-        expect(getAllCharsToIndex('vbmdvmsdv', 'ushiuhsk')).toStrictEqual([
-            {
-                's': [6]
-            },
-            {
-                's': [1, 6]
-            }
-        ])
-    })
-
-    test('test get all the chars to index 3', () => {
-        expect(getAllCharsToIndex('ihgfadf', 'dfvbna')).toStrictEqual([
-            {
-                'f': [3, 6],
-                'a': [4],
-                'd': [5]
-            },
-            {
-                'f': [1],
-                'd': [0],
-                'a': [5]
-            }
-        ])
     })
 })
 
