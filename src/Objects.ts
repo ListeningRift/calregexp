@@ -19,36 +19,57 @@ class SimilarityFeature {
 }
 
 class DifferenceFeature {
-    private feature1: string
-    private feature2: string
+    private feature: string
 
-    constructor(feature1: string, feature2: string) {
-        this.feature1 = feature1
-        this.feature2 = feature2
+    constructor(feature: string) {
+        this.feature = feature
     }
 
-    stringGet(): string {
-        return 'The Feature I is: \'' + this.feature1 + '\', the Feature II is: \'' + this.feature2 + '\'.'
+    public stringGet(): string {
+        return this.feature
     }
 
-    regexpGet(): RegExp {
-        return new RegExp('[' + this.generalNumber() + this.generalLetter() + ']+')
+    public regexpGet(): RegExp {
+        return new RegExp('[' + this.genNumber() + this.genLetter() + ']+')
     }
 
-    generalNumber(): string {
-        if (this.feature1.match(/[0-9]/) && this.feature2.match(/[0-9]/)) {
+    public regexpGetwithAnother(another: DifferenceFeature): RegExp {
+        return new RegExp('[' + this.genNumberwithAnother(another) + this.genLetterwithAnother(another) + ']+')
+    }
+
+    private genNumber(): string {
+        if (this.feature.match(/[0-9]/)) {
             return '0-9'
         }
         return ''
     }
 
-    generalLetter(): string {
+    private genLetter(): string {
         let res: string = ''
-        if (this.feature1.match(/[a-z]/) && this.feature2.match(/[a-z]/)) {
+        if (this.feature.match(/[a-z]/)) {
             res += 'a-z'
         }
 
-        if (this.feature1.match(/[A-Z]/) && this.feature2.match(/[A-Z]/)) {
+        if (this.feature.match(/[A-Z]/)) {
+            res += 'A-Z'
+        }
+        return res
+    }
+
+    private genNumberwithAnother(another: DifferenceFeature): string {
+        if (this.feature.match(/[0-9]/) && another.stringGet().match(/[0-9]/)) {
+            return '0-9'
+        }
+        return ''
+    }
+
+    private genLetterwithAnother(another: DifferenceFeature): string {
+        let res: string = ''
+        if (this.feature.match(/[a-z]/) && another.stringGet().match(/[a-z]/)) {
+            res += 'a-z'
+        }
+
+        if (this.feature.match(/[A-Z]/) && another.stringGet().match(/[A-Z]/)) {
             res += 'A-Z'
         }
         return res
