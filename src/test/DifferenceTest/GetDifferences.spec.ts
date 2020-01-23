@@ -17,6 +17,7 @@ describe('test get all the chars to index', () => {
             }
         ])
     })
+
     test('test get all the chars to index 2', () => {
         expect(getAllCharsToIndex('ushik', 'ushiuhskk')).toStrictEqual([
             {
