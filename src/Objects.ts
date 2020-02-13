@@ -1,5 +1,5 @@
 class SimilarityFeature {
-    private feature: string
+    private readonly feature: string
 
     constructor(feature: string) {
         this.feature = feature
@@ -19,13 +19,13 @@ class SimilarityFeature {
 }
 
 class DifferenceFeature {
-    private feature: string
+    private readonly feature: string | string[]
 
-    constructor(feature: string) {
+    constructor(feature: string | string[]) {
         this.feature = feature
     }
 
-    public stringGet(): string {
+    public stringGet(): string | string[] {
         return this.feature
     }
 
@@ -33,46 +33,36 @@ class DifferenceFeature {
         return new RegExp('[' + this.genNumber() + this.genLetter() + ']+')
     }
 
-    public regexpGetwithAnother(another: DifferenceFeature): RegExp {
-        return new RegExp('[' + this.genNumberwithAnother(another) + this.genLetterwithAnother(another) + ']+')
-    }
-
     private genNumber(): string {
-        if (this.feature.match(/[0-9]/)) {
+        if (Array.isArray(this.feature)) {
+            for (let f of this.feature) {
+                if (!f.match(/[0-9]/i)) {
+                    return ''
+                }
+            }
             return '0-9'
+        } else {
+            if ((this.feature as string).match(/[0-9]/i)) {
+                return '0-9'
+            }
+            return ''
         }
-        return ''
     }
 
-    private genLetter(): string {
-        let res: string = ''
-        if (this.feature.match(/[a-z]/)) {
-            res += 'a-z'
+    private genLetter(): string { // TODO   Refine the feature classification.
+        if (Array.isArray(this.feature)) {
+            for (let f of this.feature) {
+                if (!f.match(/[A-Za-z]/i)) {
+                    return ''
+                }
+            }
+            return 'A-Za-z'
+        } else {
+            if ((this.feature as string).match(/[A-Za-z]/i)) {
+                return 'A-Za-z'
+            }
+            return ''
         }
-
-        if (this.feature.match(/[A-Z]/)) {
-            res += 'A-Z'
-        }
-        return res
-    }
-
-    private genNumberwithAnother(another: DifferenceFeature): string {
-        if (this.feature.match(/[0-9]/) && another.stringGet().match(/[0-9]/)) {
-            return '0-9'
-        }
-        return ''
-    }
-
-    private genLetterwithAnother(another: DifferenceFeature): string {
-        let res: string = ''
-        if (this.feature.match(/[a-z]/) && another.stringGet().match(/[a-z]/)) {
-            res += 'a-z'
-        }
-
-        if (this.feature.match(/[A-Z]/) && another.stringGet().match(/[A-Z]/)) {
-            res += 'A-Z'
-        }
-        return res
     }
 }
 
