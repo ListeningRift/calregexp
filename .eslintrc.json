@@ -25,8 +25,9 @@
             4
         ],
         "linebreak-style": [
+            0,
             "error",
-            "unix"
+            "windows"
         ],
         "quotes": [
             "error",
@@ -49,6 +50,7 @@
         "no-irregular-whitespace": "error",
         "no-unexpected-multiline": "error",
         "no-unreachable": "error",
+        "no-unused-vars": "warn",
 
         "eqeqeq": "error",
         "no-case-declarations": "error",

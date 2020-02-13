@@ -1,8 +1,8 @@
-import { getAllCharsToIndex } from '../../difference'
+import { getAllAnchors } from '../../difference'
 
 describe('test get all the chars to index', () => {
     test('test get all the chars to index 1', () => {
-        expect(getAllCharsToIndex('ada', 'abcdaa')).toStrictEqual([
+        expect(getAllAnchors('ada', 'abcdaa')).toStrictEqual([
             {
                 'char': 'a',
                 'indexs': [0]
@@ -19,7 +19,7 @@ describe('test get all the chars to index', () => {
     })
 
     test('test get all the chars to index 2', () => {
-        expect(getAllCharsToIndex('ushik', 'ushiuhskk')).toStrictEqual([
+        expect(getAllAnchors('ushik', 'ushiuhskk')).toStrictEqual([
             {
                 'char': 'u',
                 'indexs': [0]
@@ -44,7 +44,7 @@ describe('test get all the chars to index', () => {
     })
 
     test('test get all the chars to index 3', () => {
-        expect(getAllCharsToIndex('dna', 'dfvbna')).toStrictEqual([
+        expect(getAllAnchors('dna', 'dfvbna')).toStrictEqual([
             {
                 'char': 'd',
                 'indexs': [0]

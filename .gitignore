@@ -1,3 +1,8 @@
 node_modules
 /lib
 .vscode
+
+.eslintrc.json
+.eslintignore
+jest.config.js
+tsconfig.json

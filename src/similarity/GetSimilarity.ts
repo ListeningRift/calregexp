@@ -8,7 +8,7 @@ import { SimilarityFeature } from '../Objects'
 // 删去字符串间不同的字符，不同的字符不可能是相似特征
 // 提前删去能够减少计算量
 // 返回一个字符串元组，索引位置相对应
-function deleteDifferentChars(str1: string, str2: string): [string, string] {
+export function deleteDifferentChars(str1: string, str2: string): [string, string] {
     let resStr1: string = ''
     let resStr2: string = ''
     for (let i of str1) {
@@ -27,7 +27,7 @@ function deleteDifferentChars(str1: string, str2: string): [string, string] {
 }
 
 // 通过比较得到参与比较的两个字符串的所有相似特征
-function featrueGenerated(strArray: string[]): SimilarityFeature[] {
+export function featrueGenerated(strArray: string[]): SimilarityFeature[] {
     let features: string[][] = []
     for (let i of strArray) {
         features.push(getOrderArray(i))
@@ -45,5 +45,3 @@ function featrueGenerated(strArray: string[]): SimilarityFeature[] {
 
     return result
 }
-
-export { deleteDifferentChars, featrueGenerated }

@@ -1,3 +1,3 @@
-import { getAllCharsToIndex } from './GetDifferences'
+import { getAllAnchors } from './GetDifferences'
 
-export { getAllCharsToIndex }
+export { getAllAnchors }

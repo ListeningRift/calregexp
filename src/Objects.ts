@@ -1,4 +1,4 @@
-class SimilarityFeature {
+export class SimilarityFeature {
     private readonly feature: string
 
     constructor(feature: string) {
@@ -18,7 +18,7 @@ class SimilarityFeature {
     }
 }
 
-class DifferenceFeature {
+export class DifferenceFeature {
     private readonly feature: string | string[]
 
     constructor(feature: string | string[]) {
@@ -66,4 +66,9 @@ class DifferenceFeature {
     }
 }
 
-export { SimilarityFeature, DifferenceFeature }
+// stringToindex接口记录字符串内某字符对应的在字符串中
+// 的所有索引之后差异概括时使用
+export interface anchor {
+    char: string,
+    indexs: number[]
+}
