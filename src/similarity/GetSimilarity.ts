@@ -1,9 +1,6 @@
-import {
-    getOrderArray,
-    getSameItem,
-    removeDuplicates
-} from './utils'
+import { getOrderArray } from './utils'
 import { SimilarityFeature } from '../Objects'
+import { default as _ } from 'lodash'
 
 // 删去字符串间不同的字符，不同的字符不可能是相似特征
 // 提前删去能够减少计算量
@@ -35,9 +32,9 @@ export function featrueGenerated(strArray: string[]): SimilarityFeature[] {
 
     let featureStrs = features[0]
     for (let i of features) {
-        featureStrs = getSameItem(featureStrs, i)
+        featureStrs = _.intersection(featureStrs, i)
     }
-    featureStrs = removeDuplicates(featureStrs)
+    featureStrs = _.uniq(featureStrs)
     let result: SimilarityFeature[] = []
     for (let i of featureStrs) {
         result.push(new SimilarityFeature(i))

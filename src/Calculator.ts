@@ -1,6 +1,6 @@
 import { SimilarityFeature } from './Objects'
 import { featrueGenerated } from './similarity/GetSimilarity'
-import { getSameItem } from './similarity'
+import { default as _ } from 'lodash'
 
 class Calculator {
     private objects: string[]
@@ -18,7 +18,7 @@ class Calculator {
         if (this.features.length === 0) {
             this.features = features
         } else {
-            this.features = getSameItem(this.features, features)
+            this.features = _.intersection(this.features, features)
         }
     }
 
