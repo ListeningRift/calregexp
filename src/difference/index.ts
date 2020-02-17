@@ -1,3 +1,3 @@
-import { getAllAnchors } from './GetDifferences'
+import { getAllAnchors, getDifferences } from './GetDifferences'
 
-export { getAllAnchors }
+export { getAllAnchors, getDifferences }
